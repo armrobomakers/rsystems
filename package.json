@@ -1,0 +1,29 @@
+{
+  "name": "telegrammanager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal Telegram agent scaffold",
+  "main": "src/cli.js",
+  "scripts": {
+    "login": "node src/cli.js login",
+    "whoami": "node src/cli.js whoami",
+    "dialogs": "node src/cli.js dialogs",
+    "archive": "node src/cli.js archive",
+    "send": "node src/cli.js send",
+    "broadcast": "node src/cli.js broadcast",
+    "sync-archive": "python scripts/sync_archive_to_crm.py",
+    "brief": "python scripts/reality_brief.py",
+    "bottest": "node src/cli.js bottest",
+    "botlog": "node src/cli.js botlog",
+    "agent": "node src/cli.js agent",
+    "start": "node src/cli.js agent",
+    "site": "node scripts/site-server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "telegram": "^2.26.22"
+  }
+}

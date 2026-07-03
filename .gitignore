@@ -1,0 +1,13 @@
+node_modules/
+.tmp/
+.codex-remote-attachments/
+chrome-profile-copy/
+outputs/
+project-page*.png
+project-dom-check.png
+R-Systems-mockup.png
+desktop-screenshot.png
+.env
+.data/
+*.session
+*.log
