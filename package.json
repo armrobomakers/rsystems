@@ -17,7 +17,9 @@
     "botlog": "node src/cli.js botlog",
     "agent": "node src/cli.js agent",
     "start": "node src/cli.js agent",
-    "site": "node scripts/site-server.js"
+    "site": "node scripts/site-server.js",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down"
   },
   "engines": {
     "node": ">=20"

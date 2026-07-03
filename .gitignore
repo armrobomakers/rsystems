@@ -9,6 +9,9 @@ project-page*.png
 project-dom-check.png
 R-Systems-mockup.png
 desktop-screenshot.png
+desktop-screenshot-chrome.png
+chrome-tab-2.png
+playwright-project*.png
 .env
 .data/
 *.session

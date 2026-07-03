@@ -51,6 +51,7 @@ npm run site
 
 - The personal site for `R Systems` lives in [`index.html`](index.html).
 - Run `npm run site` and open `http://127.0.0.1:4173`.
+- Or run `npm run docker:up` and open `http://127.0.0.1:8888`.
 - The current site uses your Telegram handle `@Alexandr_Ryzhkov` and phone number as the contact CTA.
 - This root-level static site is ready to connect to GitHub and Vercel without a framework rewrite.
 
