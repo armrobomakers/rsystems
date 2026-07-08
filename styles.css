@@ -313,6 +313,24 @@ h1 span:nth-child(4) {
   font-weight: 700;
 }
 
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.button-icon-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 12h14' stroke='%2315110d' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M13 5l7 7-7 7' stroke='%2315110d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.button-secondary .button-icon-plane,
+.contact-card .button-icon-plane {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 12l15-7-4.5 15-3.3-6.2L4 12z' stroke='%23d6a86e' stroke-width='1.7' stroke-linejoin='round'/%3E%3Cpath d='M11.2 13.8L20 5' stroke='%23d6a86e' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
 .button:hover {
   transform: translateY(-1px);
 }
@@ -385,6 +403,7 @@ h1 span:nth-child(4) {
 .meta-copy {
   display: grid;
   gap: 0.18rem;
+  min-width: 0;
 }
 
 .meta-icon {
