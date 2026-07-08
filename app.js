@@ -36,7 +36,7 @@ if (topbar) {
   const updateTopbar = () => {
     const currentY = window.scrollY;
     const scrolled = currentY > 24;
-    const directionDown = currentY > lastY;
+    const directionDown = currentY > lastY + 4;
 
     document.body.classList.toggle("is-scrolled", scrolled);
     document.body.classList.toggle("is-scrolling-down", directionDown && scrolled);
