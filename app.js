@@ -26,3 +26,35 @@ if ("IntersectionObserver" in window) {
 } else {
   revealNodes.forEach((node) => node.classList.add("visible"));
 }
+
+const topbar = document.querySelector(".topbar");
+
+if (topbar) {
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  const updateTopbar = () => {
+    const currentY = window.scrollY;
+    const scrolled = currentY > 24;
+    const directionDown = currentY > lastY;
+
+    document.body.classList.toggle("is-scrolled", scrolled);
+    document.body.classList.toggle("is-scrolling-down", directionDown && scrolled);
+
+    lastY = currentY;
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateTopbar);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+
+  updateTopbar();
+}

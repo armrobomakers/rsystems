@@ -109,6 +109,25 @@ a {
   background: linear-gradient(180deg, rgba(10, 12, 16, 0.94), rgba(10, 12, 16, 0.76));
   backdrop-filter: blur(18px);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+  transition:
+    padding 0.28s ease,
+    border-radius 0.28s ease,
+    transform 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+body.is-scrolled .topbar {
+  padding: 0.72rem 0.95rem;
+  border-radius: 999px;
+  transform: translateY(-1px);
+  border-color: rgba(214, 168, 110, 0.26);
+  background:
+    linear-gradient(180deg, rgba(8, 10, 14, 0.9), rgba(9, 11, 15, 0.74)),
+    radial-gradient(circle at 50% 0%, rgba(214, 168, 110, 0.06), transparent 45%);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
 }
 
 .brand {
@@ -145,6 +164,12 @@ a {
 .brand-copy span {
   font-size: 0.82rem;
   color: var(--muted);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+body.is-scrolled .brand-copy span {
+  opacity: 0.72;
+  transform: translateY(-1px);
 }
 
 .nav {
@@ -153,6 +178,12 @@ a {
   gap: 1.45rem;
   color: var(--muted);
   font-size: 0.95rem;
+  transition: gap 0.22s ease, font-size 0.22s ease;
+}
+
+body.is-scrolled .nav {
+  gap: 1.2rem;
+  font-size: 0.92rem;
 }
 
 .nav a:hover,
@@ -171,6 +202,11 @@ a {
   background: rgba(255, 255, 255, 0.01);
   box-shadow: var(--shadow-soft);
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+body.is-scrolled .ghost-link {
+  padding: 0.72rem 1rem;
+  background: rgba(214, 168, 110, 0.06);
 }
 
 .ghost-link:hover {
@@ -196,6 +232,14 @@ a {
   gap: 1.35rem;
   align-items: stretch;
   min-height: 740px;
+}
+
+body.is-scrolled .topbar .brand-mark {
+  transform: scale(0.95);
+}
+
+body.is-scrolled .topbar .brand {
+  gap: 0.72rem;
 }
 
 .hero-copy,
@@ -1497,6 +1541,10 @@ h1 span:nth-child(4) {
     flex-wrap: wrap;
   }
 
+  body.is-scrolled .topbar {
+    border-radius: 24px;
+  }
+
   .nav {
     order: 3;
     width: 100%;
@@ -1529,6 +1577,11 @@ h1 span:nth-child(4) {
 
   .topbar {
     padding: 0.95rem;
+  }
+
+  body.is-scrolled .topbar {
+    padding: 0.85rem 0.9rem;
+    border-radius: 22px;
   }
 
   .hero-copy,

@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>R Systems · Motion Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #06080d;
+        --panel: rgba(12, 15, 20, 0.94);
+        --stroke: rgba(214, 168, 110, 0.14);
+        --stroke-strong: rgba(214, 168, 110, 0.24);
+        --text: #f4efe7;
+        --muted: rgba(244, 239, 231, 0.6);
+        --accent: #d6a86e;
+        --accent-2: #f0c48b;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Manrope, system-ui, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 20% 10%, rgba(214, 168, 110, 0.14), transparent 24%),
+          radial-gradient(circle at 80% 12%, rgba(255, 255, 255, 0.04), transparent 18%),
+          linear-gradient(180deg, #05070a 0%, #090d13 100%);
+      }
+
+      .wrap {
+        width: min(1260px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 28px 0 44px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: var(--accent);
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.6rem, 4vw, 4.8rem);
+        line-height: 0.94;
+        max-width: 12ch;
+      }
+
+      .lede {
+        margin: 0;
+        max-width: 68ch;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--stroke);
+        border-radius: 26px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02)),
+          var(--panel);
+        box-shadow: 0 24px 90px rgba(0, 0, 0, 0.34);
+        overflow: hidden;
+      }
+
+      .card-head {
+        padding: 18px 18px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .card-title {
+        margin: 0;
+        font-size: 0.92rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .card-subtitle {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .motion {
+        margin: 16px;
+        height: 230px;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        position: relative;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+          linear-gradient(180deg, #0a0d12 0%, #0d1117 100%);
+      }
+
+      .page-lines {
+        position: absolute;
+        inset: 0;
+        opacity: 0.38;
+        background:
+          linear-gradient(180deg, transparent 0 28%, rgba(255, 255, 255, 0.06) 28% 29%, transparent 29% 48%, rgba(255, 255, 255, 0.05) 48% 49%, transparent 49% 100%),
+          radial-gradient(circle at 75% 28%, rgba(214, 168, 110, 0.18), transparent 13%),
+          radial-gradient(circle at 15% 72%, rgba(255, 255, 255, 0.08), transparent 12%);
+      }
+
+      .header-shell {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 14px;
+        height: 66px;
+        border-radius: 20px;
+        border: 1px solid rgba(214, 168, 110, 0.2);
+        background: linear-gradient(180deg, rgba(10, 12, 16, 0.98), rgba(10, 12, 16, 0.72));
+        backdrop-filter: blur(18px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        padding: 0 16px;
+        gap: 12px;
+        transform-origin: center top;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .mark {
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--accent-2);
+        border: 1px solid rgba(214, 168, 110, 0.3);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .brand-text {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand-text strong {
+        font-size: 0.9rem;
+      }
+
+      .brand-text span {
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+
+      .mini-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 34px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(214, 168, 110, 0.24);
+        color: var(--accent-2);
+        font-size: 0.82rem;
+      }
+
+      .variant-label {
+        position: absolute;
+        left: 16px;
+        bottom: 14px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .variant-badge {
+        position: absolute;
+        right: 16px;
+        bottom: 12px;
+        color: var(--accent-2);
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .variant-premium .header-shell {
+        animation: premiumMotion 5.2s ease-in-out infinite;
+      }
+
+      .variant-float .header-shell {
+        animation: floatMotion 5.2s ease-in-out infinite;
+      }
+
+      .variant-hide .header-shell {
+        animation: hideMotion 5.2s ease-in-out infinite;
+      }
+
+      .variant-premium .brand-text span,
+      .variant-float .brand-text span,
+      .variant-hide .brand-text span,
+      .variant-premium .mini-cta,
+      .variant-float .mini-cta,
+      .variant-hide .mini-cta {
+        transition: opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+      }
+
+      @keyframes premiumMotion {
+        0%, 12% {
+          transform: translateY(0) scale(1);
+          border-radius: 20px;
+          box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+        }
+        32%, 68% {
+          transform: translateY(-1px) scale(0.985);
+          border-radius: 999px;
+          box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+        }
+        88%, 100% {
+          transform: translateY(0) scale(1);
+          border-radius: 20px;
+          box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+        }
+      }
+
+      .variant-premium .header-shell::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        border: 1px solid rgba(214, 168, 110, 0.08);
+        opacity: 0.48;
+        pointer-events: none;
+      }
+
+      .variant-premium .brand-text span {
+        animation: fadeSubline 5.2s ease-in-out infinite;
+      }
+
+      .variant-premium .mini-cta {
+        animation: ctaTighten 5.2s ease-in-out infinite;
+      }
+
+      @keyframes fadeSubline {
+        0%, 14% { opacity: 1; transform: translateY(0); }
+        34%, 66% { opacity: 0.54; transform: translateY(-1px); }
+        86%, 100% { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes ctaTighten {
+        0%, 14% { padding-inline: 14px; background: rgba(255, 255, 255, 0.01); }
+        34%, 66% { padding-inline: 12px; background: rgba(214, 168, 110, 0.08); }
+        86%, 100% { padding-inline: 14px; background: rgba(255, 255, 255, 0.01); }
+      }
+
+      @keyframes floatMotion {
+        0%, 15% {
+          transform: translateY(0) scale(1);
+          border-radius: 20px;
+          opacity: 1;
+        }
+        38%, 62% {
+          transform: translateY(4px) scale(0.98);
+          border-radius: 24px;
+          opacity: 0.94;
+        }
+        85%, 100% {
+          transform: translateY(0) scale(1);
+          border-radius: 20px;
+          opacity: 1;
+        }
+      }
+
+      .variant-float .mini-cta {
+        animation: floatCTA 5.2s ease-in-out infinite;
+      }
+
+      @keyframes floatCTA {
+        0%, 15% { transform: translateY(0); opacity: 1; }
+        38%, 62% { transform: translateY(-1px); opacity: 0.72; }
+        85%, 100% { transform: translateY(0); opacity: 1; }
+      }
+
+      @keyframes hideMotion {
+        0%, 18% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        34%, 58% {
+          transform: translateY(-22px);
+          opacity: 0.18;
+        }
+        76%, 100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .variant-hide .brand-text span {
+        animation: hideSubline 5.2s ease-in-out infinite;
+      }
+
+      .variant-hide .mini-cta {
+        animation: hideCTA 5.2s ease-in-out infinite;
+      }
+
+      @keyframes hideSubline {
+        0%, 18% { opacity: 1; }
+        34%, 58% { opacity: 0; }
+        76%, 100% { opacity: 1; }
+      }
+
+      @keyframes hideCTA {
+        0%, 18% { transform: translateY(0); opacity: 1; }
+        34%, 58% { transform: translateY(-8px); opacity: 0; }
+        76%, 100% { transform: translateY(0); opacity: 1; }
+      }
+
+      .card-foot {
+        padding: 0 18px 18px;
+      }
+
+      .summary {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 0.92rem;
+      }
+
+      .pick {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 12px;
+        padding: 0.68rem 0.95rem;
+        border-radius: 999px;
+        border: 1px solid var(--stroke-strong);
+        color: var(--accent-2);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.74rem;
+      }
+
+      @media (max-width: 1080px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <p class="eyebrow">R Systems · motion lab</p>
+        <h1>Варианты движения шапки</h1>
+        <p class="lede">
+          Три сценария анимации для хедера. Можно выбрать один из них и затем довести уже
+          основную шапку сайта под выбранный характер движения.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card variant-premium">
+          <div class="card-head">
+            <div>
+              <h2 class="card-title">Премиальная компрессия</h2>
+              <p class="card-subtitle">
+                Шапка остаётся вверху, но на скролле становится ниже, плотнее и тише.
+              </p>
+            </div>
+            <span class="pick">Мой фаворит</span>
+          </div>
+          <div class="motion">
+            <div class="page-lines"></div>
+            <div class="header-shell">
+              <div class="brand">
+                <span class="mark">R</span>
+                <div class="brand-text">
+                  <strong>R Systems</strong>
+                  <span>сайты, боты, автоматизация</span>
+                </div>
+              </div>
+              <a class="mini-cta" href="#top">Telegram</a>
+            </div>
+            <div class="variant-label">скролл вниз → хедер сжимается</div>
+            <div class="variant-badge">premium / calm</div>
+          </div>
+          <div class="card-foot">
+            <p class="summary">
+              Самый «дорогой» вариант. Хорош для лендинга, где шапка не должна спорить с контентом,
+              но должна оставаться под рукой.
+            </p>
+          </div>
+        </article>
+
+        <article class="card variant-float">
+          <div class="card-head">
+            <div>
+              <h2 class="card-title">Плавающая полка</h2>
+              <p class="card-subtitle">
+                Шапка мягко смещается вверх и назад, будто висит над страницей отдельным слоем.
+              </p>
+            </div>
+            <span class="pick">Нейтрально</span>
+          </div>
+          <div class="motion">
+            <div class="page-lines"></div>
+            <div class="header-shell">
+              <div class="brand">
+                <span class="mark">R</span>
+                <div class="brand-text">
+                  <strong>R Systems</strong>
+                  <span>сайты, боты, автоматизация</span>
+                </div>
+              </div>
+              <a class="mini-cta" href="#top">Telegram</a>
+            </div>
+            <div class="variant-label">скролл вниз → шапка слегка парит</div>
+            <div class="variant-badge">float / glass</div>
+          </div>
+          <div class="card-foot">
+            <p class="summary">
+              Подходит, если хочется сохранить ощущение легкости и стекла, но не делать шапку
+              слишком заметной.
+            </p>
+          </div>
+        </article>
+
+        <article class="card variant-hide">
+          <div class="card-head">
+            <div>
+              <h2 class="card-title">Исчезает при скролле</h2>
+              <p class="card-subtitle">
+                При движении вниз хедер уходит вверх, а при возврате возвращается обратно.
+              </p>
+            </div>
+            <span class="pick">Самый чистый</span>
+          </div>
+          <div class="motion">
+            <div class="page-lines"></div>
+            <div class="header-shell">
+              <div class="brand">
+                <span class="mark">R</span>
+                <div class="brand-text">
+                  <strong>R Systems</strong>
+                  <span>сайты, боты, автоматизация</span>
+                </div>
+              </div>
+              <a class="mini-cta" href="#top">Telegram</a>
+            </div>
+            <div class="variant-label">скролл вниз → шапка скрывается</div>
+            <div class="variant-badge">hide / focus</div>
+          </div>
+          <div class="card-foot">
+            <p class="summary">
+              Самый «чистый» сценарий. Если хочешь максимально убрать отвлекающие элементы и дать
+              странице больше воздуха.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
