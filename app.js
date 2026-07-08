@@ -1,7 +1,7 @@
 const yearNode = document.getElementById("year");
 
 if (yearNode) {
-  yearNode.textContent = `© ${new Date().getFullYear()} R Systems`;
+  yearNode.textContent = "© 2024 R Systems";
 }
 
 const revealNodes = document.querySelectorAll(".reveal");

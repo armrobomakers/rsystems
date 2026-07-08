@@ -1322,6 +1322,20 @@ h1 span:nth-child(4) {
   padding: 1.35rem;
 }
 
+.contact h2 {
+  max-width: 12.5ch;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: clamp(2.1rem, 3.6vw, 3.45rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.contact .lede.compact {
+  max-width: 38ch;
+  margin-top: 0.85rem;
+}
+
 .contact-features {
   display: flex;
   flex-wrap: wrap;
