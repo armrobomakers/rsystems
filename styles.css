@@ -259,8 +259,8 @@ h3,
 }
 
 h1 {
-  max-width: 16.8ch;
-  font-size: clamp(2.75rem, 4.45vw, 5.1rem);
+  max-width: 16.1ch;
+  font-size: clamp(2.6rem, 4vw, 4.75rem);
   letter-spacing: -0.055em;
   text-wrap: balance;
 }
