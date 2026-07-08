@@ -685,14 +685,46 @@ h1 span:nth-child(4) {
 .section-heading {
   display: grid;
   gap: 0.55rem;
-  justify-items: center;
-  text-align: center;
+  justify-items: start;
+  text-align: left;
 }
 
 .section-heading h2 {
   max-width: 16ch;
   font-size: clamp(2rem, 3vw, 3.2rem);
   letter-spacing: -0.05em;
+}
+
+.section-heading-center {
+  justify-items: center;
+  text-align: center;
+}
+
+.section-heading-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+}
+
+.section-heading-row h2 {
+  max-width: 18ch;
+}
+
+.section-link {
+  align-self: end;
+  color: var(--accent-2);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.section-link:hover {
+  color: var(--text);
+}
+
+.section-anchor {
+  display: block;
+  height: 0;
+  overflow: hidden;
 }
 
 .service-grid,
@@ -1397,6 +1429,11 @@ h1 span:nth-child(4) {
   .trust-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .section-heading-row {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1446,7 +1483,6 @@ h1 span:nth-child(4) {
   .case-card,
   .review-card,
   .package-card,
-  .about,
   .contact {
     border-radius: 22px;
   }
@@ -1472,5 +1508,9 @@ h1 span:nth-child(4) {
 
   .footer-nav {
     justify-content: flex-start;
+  }
+
+  .section-link {
+    white-space: normal;
   }
 }
