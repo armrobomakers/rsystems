@@ -38,8 +38,7 @@ if (topbar) {
     const scrolled = currentY > 24;
     const directionDown = currentY > lastY + 4;
 
-    document.body.classList.toggle("is-scrolled", scrolled);
-    document.body.classList.toggle("is-scrolling-down", directionDown && scrolled);
+    document.body.classList.toggle("is-header-hidden", directionDown && scrolled);
 
     lastY = currentY;
     ticking = false;
