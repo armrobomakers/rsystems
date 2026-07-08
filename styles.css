@@ -493,35 +493,36 @@ h1 span:nth-child(4) {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 70% 24%, rgba(255, 205, 128, 0.12), transparent 16%),
-    radial-gradient(circle at 94% 78%, rgba(255, 212, 128, 0.9), transparent 5%),
-    linear-gradient(180deg, rgba(26, 24, 22, 0.04) 0%, rgba(8, 10, 14, 0.12) 52%, rgba(5, 7, 10, 0.86) 100%);
+    radial-gradient(circle at 73% 27%, rgba(255, 203, 122, 0.26), transparent 15%),
+    radial-gradient(circle at 94% 76%, rgba(255, 214, 130, 0.95), transparent 4.2%),
+    linear-gradient(180deg, rgba(29, 22, 18, 0.12) 0%, rgba(11, 11, 15, 0.2) 45%, rgba(5, 7, 10, 0.88) 100%);
   pointer-events: none;
+  filter: saturate(1.05);
 }
 
 .panel-scene::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 36%;
-  bottom: 14%;
-  height: 43%;
-  background: linear-gradient(180deg, rgba(23, 22, 22, 0.96), rgba(5, 7, 10, 1));
-  clip-path: polygon(0 100%, 0 74%, 9% 60%, 18% 48%, 28% 58%, 40% 38%, 53% 49%, 66% 30%, 78% 56%, 90% 36%, 100% 58%, 100% 100%);
+  left: -2%;
+  right: 34%;
+  bottom: 13%;
+  height: 46%;
+  background: linear-gradient(180deg, rgba(37, 31, 26, 0.98), rgba(8, 10, 14, 1));
+  clip-path: polygon(0 100%, 0 68%, 8% 58%, 16% 45%, 25% 53%, 36% 35%, 48% 46%, 59% 27%, 69% 39%, 79% 24%, 89% 41%, 100% 34%, 100% 100%);
   filter: blur(0.2px);
 }
 
 .panel-scene::after {
   content: "";
   position: absolute;
-  left: 34%;
+  left: 30%;
   right: 0;
   bottom: 0;
-  height: 48%;
+  height: 50%;
   background:
-    radial-gradient(circle at 84% 44%, rgba(255, 214, 130, 0.96) 0 3.3%, rgba(255, 214, 130, 0.22) 5.5%, transparent 15%),
-    linear-gradient(180deg, rgba(23, 20, 19, 0.74), rgba(5, 7, 10, 0.98));
-  clip-path: polygon(0 100%, 0 70%, 13% 56%, 24% 38%, 36% 50%, 49% 32%, 60% 46%, 74% 24%, 86% 43%, 100% 30%, 100% 100%);
+    radial-gradient(circle at 83% 40%, rgba(255, 214, 130, 1) 0 3.5%, rgba(255, 214, 130, 0.22) 6%, transparent 16%),
+    linear-gradient(180deg, rgba(31, 22, 18, 0.7), rgba(5, 7, 10, 0.98));
+  clip-path: polygon(0 100%, 0 74%, 12% 58%, 22% 39%, 34% 53%, 46% 33%, 59% 47%, 71% 23%, 82% 41%, 100% 30%, 100% 100%);
   opacity: 0.98;
   filter: blur(0.15px);
 }
@@ -530,9 +531,9 @@ h1 span:nth-child(4) {
   content: "";
   position: absolute;
   inset: auto 0 0 0;
-  height: 24%;
-  background: linear-gradient(180deg, transparent, rgba(5, 7, 10, 0.18) 15%, rgba(5, 7, 10, 0.58) 100%);
-  opacity: 0.95;
+  height: 20%;
+  background: linear-gradient(180deg, transparent, rgba(5, 7, 10, 0.12) 15%, rgba(5, 7, 10, 0.42) 100%);
+  opacity: 0.92;
 }
 
 .panel-monogram {
