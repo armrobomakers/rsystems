@@ -28,19 +28,41 @@ if ("IntersectionObserver" in window) {
 }
 
 const topbar = document.querySelector(".topbar");
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
 
 if (topbar) {
-  let lastY = window.scrollY;
+  const setMenuOpen = (open) => {
+    topbar.classList.toggle("is-menu-open", open);
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    if (mobileMenu) {
+      mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
+    }
+  };
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(!topbar.classList.contains("is-menu-open"));
+    });
+  }
+
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+  }
+
   let ticking = false;
+  let hidden = false;
 
   const updateTopbar = () => {
     const currentY = window.scrollY;
-    const scrolled = currentY > 24;
-    const directionDown = currentY > lastY + 4;
+    const isCompact = window.innerWidth <= 900;
+    hidden = !isCompact && currentY > 24 && !topbar.classList.contains("is-menu-open");
 
-    document.body.classList.toggle("is-header-hidden", directionDown && scrolled);
-
-    lastY = currentY;
+    document.body.classList.toggle("is-header-hidden", hidden);
     ticking = false;
   };
 
@@ -54,6 +76,13 @@ if (topbar) {
     },
     { passive: true },
   );
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      setMenuOpen(false);
+    }
+    updateTopbar();
+  });
 
   updateTopbar();
 }
