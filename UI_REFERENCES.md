@@ -78,3 +78,52 @@ References used for the central sections:
 - What worked: balanced heading/subheading rhythm and clean section introductions.
 - What was not copied: any component code or layout framework.
 - Adaptation for vanilla HTML/CSS: refine only the section heading spacing and balance inside services/packages blocks.
+
+## Stage 3 — Social Proof, CTA and Footer
+
+References used for the lower page:
+
+- `$21st-cli-use` was invoked during the stage, but `21st search` was unavailable because the session was not signed in.
+- No 21st components were installed.
+- Visual guidance came from public 21st.dev pages plus the `$ui-ux-pro-max` index.
+- React, Next.js, Tailwind CSS, shadcn/ui, and Motion were not transferred into this project.
+
+### 1. Stats
+
+- URL: https://21st.dev/community/components/s/stats
+- What worked: compact metric rhythm, scannable numbers, trust-forward hierarchy.
+- What was not copied: any counter animation, framework component code, or JavaScript behavior.
+- Adaptation for vanilla HTML/CSS: keep the trust-strip static, more compact, and readable on mobile.
+- Applied to: `trust-strip`.
+
+### 2. Testimonial Section
+
+- URL: https://21st.dev/community/components/s/testimonial-section
+- What worked: testimonial block ordering, social-proof density, and clear separation from the CTA.
+- What was not copied: carousel logic, framework-specific wrappers, or dynamic state.
+- Adaptation for vanilla HTML/CSS: use the existing review grid, strengthen the card surface, and keep the section static.
+- Applied to: `reviews`.
+
+### 3. Testimonial Card
+
+- URL: https://21st.dev/community/components/s/testimonial
+- What worked: quote marker, avatar + name + role grouping, and strong trust cue hierarchy.
+- What was not copied: component code, data models, or generated motion.
+- Adaptation for vanilla HTML/CSS: refine each review card with cleaner spacing, subtler borders, and readable attribution.
+- Applied to: individual `review-card` elements.
+
+### 4. CTA
+
+- URL: https://21st.dev/community/components/s/cta
+- What worked: single primary action, clear end-of-page closure, and concise supporting copy.
+- What was not copied: form mechanics, component props, or any JS-driven conversion flow.
+- Adaptation for vanilla HTML/CSS: keep one primary Telegram action, improve spacing, and visually connect CTA to the footer.
+- Applied to: `#contact`.
+
+### 5. Footer
+
+- URL: https://21st.dev/community/components/s/footer
+- What worked: compact information density, simple link cluster, and strong page closure.
+- What was not copied: any framework layout or generated data.
+- Adaptation for vanilla HTML/CSS: keep the existing links, tighten the rhythm, and add a restrained top divider.
+- Applied to: `.footer`.
