@@ -39,3 +39,42 @@ This stage used public 21st.dev community references as visual guidance for the 
 - Use the navbar logic from the mobile menu references, but keep the current HTML/CSS/JS stack.
 - Use the hero hierarchy and trust-panel logic from the hero references.
 - Use the background references only as atmospheric guidance, not as framework-specific implementation.
+
+## Stage 2 — Services and Benefits
+
+References used for the central sections:
+
+### 1. Bento Grid
+
+- URL: https://21st.dev/community/components/s/bento-grid
+- What worked: modular card rhythm, clear separation of value blocks, compact hierarchy.
+- What was not copied: framework code, component API, and any interactive behavior.
+- Adaptation for vanilla HTML/CSS: use a static 2-column feature layout with stronger spacing and card depth.
+
+### 2. Feature Grid
+
+- URL: https://21st.dev/community/components/s/feature-grid
+- What worked: scannable feature grouping, repeated card language, high signal-to-noise ratio.
+- What was not copied: React structure and any registry-specific patterns.
+- Adaptation for vanilla HTML/CSS: use plain grid, consistent card paddings, and equalized information density.
+
+### 3. Feature Card
+
+- URL: https://21st.dev/community/components/s/feature-card
+- What worked: one card, one message, one visual anchor.
+- What was not copied: code, props, or framework dependencies.
+- Adaptation for vanilla HTML/CSS: keep service cards self-contained, with one icon, one headline, one short body, one action.
+
+### 4. Cards
+
+- URL: https://21st.dev/community/components/s/cards
+- What worked: layered surfaces, borders, spacing, and restrained shadows.
+- What was not copied: card implementation details or interactions.
+- Adaptation for vanilla HTML/CSS: preserve the current card system, but increase depth contrast and hierarchy.
+
+### 5. Section Heading
+
+- URL: https://21st.dev/community/components/s/section-heading
+- What worked: balanced heading/subheading rhythm and clean section introductions.
+- What was not copied: any component code or layout framework.
+- Adaptation for vanilla HTML/CSS: refine only the section heading spacing and balance inside services/packages blocks.
